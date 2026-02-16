@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project One</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      padding-top: 100px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #000000 0%, #000000 100%);
+      color: white;
+      padding: 2rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e1e2f 0%, #2c2c54 100%);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .stats-section {
+      background: #f9f9f9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #7b7b7b;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      color: #7b7b7b;
+      margin-bottom: 2rem;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .description-section {
+      background: white;
+      padding: 4rem 0;
+    }
+
+    .description-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .description-text h3 {
+      font-size: 1.5rem;
+      color: #7b7b7b;
+      margin-bottom: 1rem;
+    }
+
+    .description-text p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .features-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .features-list li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #666;
+    }
+
+    .features-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #7b7b7b;
+      font-weight: bold;
+    }
+
+    .tech-stack {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+
+    .tech-stack h4 {
+      color: #7b7b7b;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .tech-tag {
+      background: #e0e0e0;
+      color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header>
+    <nav>
+      <div class="logo"><img src="26studio.png" alt="26studio" class="logo-img"></div>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Project One</h1>
+    <p>A responsive web application built with modern technologies.</p>
+  </section>
+
+  <!-- Stats Section with Rolling Numbers -->
+  <section class="stats-section">
+    <div class="container">
+      <h2>My Achievements</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="97">0</div>
+          <div class="stat-label"> Clients Satisfied</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Description Section -->
+  <section class="description-section">
+    <div class="container">
+      <h2>Project Overview</h2>
+      <div class="description-content">
+        <div class="description-text">
+          <h3>What is This Project About?</h3>
+          <p>This is a responsive web application designed to showcase modern web development practices. Built with cutting-edge technologies, it demonstrates expertise in creating user-friendly interfaces and scalable architecture.</p>
+          <p>The project focuses on delivering an exceptional user experience with smooth animations, intuitive navigation, and mobile-first design principles. It serves as a complete solution for businesses looking to establish a strong online presence.</p>
+          
+          <h3>Key Features</h3>
+          <ul class="features-list">
+            <li>Fully Responsive Design</li>
+            <li>Modern UI/UX Principles</li>
+            <li>Smooth Animations & Transitions</li>
+            <li>SEO Optimized</li>
+            <li>Fast Load Times</li>
+            <li>Cross-browser Compatible</li>
+            <li>Clean & Maintainable Code</li>
+          </ul>
+        </div>
+        
+        <div>
+          <div class="tech-stack">
+            <h4>Technologies Used</h4>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Responsive Design</span>
+              <span class="tech-tag">Web APIs</span>
+            </div>
+          </div>
+
+          <div class="tech-stack">
+            <h4>Project Highlights</h4>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 0;">
+              This project demonstrates advanced front-end development skills including state management, component architecture, and performance optimization. The application is deployed and live, serving as a testament to professional web development standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Rolling counter animation
+    function animateCounter() {
+      const counters = document.querySelectorAll('.stat-number');
+      
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const increment = target / 30; // Divide into 30 steps for smooth animation
+        let current = 0;
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + (counter.getAttribute('data-target') === '97' ? '' : '+');
+          }
+        };
+
+        updateCounter();
+      });
+    }
+
+    // Trigger animation when page loads
+    document.addEventListener('DOMContentLoaded', animateCounter);
+  </script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 100px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+         .logo-img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #140f0a, #2c1810, #402218);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .resume-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-left: 3px solid #667eea;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .resume-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .resume-item:before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .resume-item h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .resume-item .position {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .resume-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .resume-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #e0e7ff;
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 2rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-item {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <div class="logo"><img src="26studio.png" alt="26studio" class="logo-img"></div>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>My Resume</h1>
+            <p>Professional experience and qualifications</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Experience Section -->
+        <section>
+            <h2>Experience</h2>
+            
+            <div class="resume-item">
+                <h3>Senior Developer</h3>
+                <div class="position">Tech Company Inc.</div>
+                <div class="date">Jan 2023 - Present</div>
+                <p>Led development of multiple web applications using React and Node.js. Managed a team of 5 developers and improved application performance by 40%. Implemented best practices and code standards across the organization.</p>
+            </div>
+
+            <div class="resume-item">
+                <h3>Full Stack Developer</h3>
+                <div class="position">Digital Solutions Ltd.</div>
+                <div class="date">Jun 2021 - Dec 2022</div>
+                <p>Developed responsive web applications using modern JavaScript frameworks. Collaborated with design and product teams to deliver user-centric solutions. Maintained and optimized existing applications, reducing load time by 30%.</p>
+            </div>
+
+            <div class="resume-item">
+                <h3>Junior Developer</h3>
+                <div class="position">Web Services Corp.</div>
+                <div class="date">Jan 2020 - May 2021</div>
+                <p>Started career developing HTML, CSS, and JavaScript websites. Assisted senior developers in debugging and fixing issues. Participated in code reviews and learned best practices for web development.</p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            
+            <div class="resume-item">
+                <h3>Bachelor of Science in Computer Science</h3>
+                <div class="position">University of Technology</div>
+                <div class="date">2016 - 2020</div>
+                <p>Graduated with honors. Specialized in web development and software engineering. Completed capstone project on e-commerce platform development.</p>
+            </div>
+
+            <div class="resume-item">
+                <h3>Web Development Bootcamp</h3>
+                <div class="position">Coding Academy</div>
+                <div class="date">2019 - 2020</div>
+                <p>Intensive 3-month program covering full-stack web development. Built 5+ portfolio projects using React, Node.js, and MongoDB.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Frontend</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Backend</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Databases</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Tools & Platforms</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section>
+            <h2>Certifications & Awards</h2>
+            
+            <div class="resume-item">
+                <h3>AWS Certified Solutions Architect</h3>
+                <div class="date">2023</div>
+                <p>Associate level certification demonstrating expertise in designing scalable and reliable systems on AWS.</p>
+            </div>
+
+            <div class="resume-item">
+                <h3>Google Professional Cloud Architect</h3>
+                <div class="date">2022</div>
+                <p>Professional level certification for Google Cloud Platform architecture and design.</p>
+            </div>
+
+            <div class="resume-item">
+                <h3>Developer of the Year Award</h3>
+                <div class="date">2023</div>
+                <p>Recognition from Tech Company Inc. for outstanding contributions and innovation in projects.</p>
+            </div>
+        </section>
+
+        <!-- Download Button -->
+        <div style="text-align: center;">
+            <a href="Aayushi Goswami_20260211_232712_0000.pdf" download="Aayushi Goswami Resume.pdf" class="download-button">📄 Download Full Resume (PDF)</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

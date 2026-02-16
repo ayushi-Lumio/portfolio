@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 100px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+         .logo-img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #140f0a, #2c1810, #402218);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .blog-section {
+            padding: 4rem 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            background: linear-gradient(135deg, #140f0a, #2c1810, #402218);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .blog-date {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .blog-category {
+            background: #e0e7ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .blog-card h3 {
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+        }
+
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            align-self: flex-start;
+        }
+
+        .read-more:hover {
+            color: #764ba2;
+        }
+
+        .search-bar {
+            max-width: 400px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #e0e7ff;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <div class="logo"><img src="26studio.png" alt="26studio" class="logo-img"></div>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>My Blog</h1>
+            <p>Thoughts, insights, and tips on web development and technology</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search articles...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">📝</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Jan 15, 2026</span>
+                            <span class="blog-category">Tutorial</span>
+                        </div>
+                        <h3>Getting Started with React Hooks</h3>
+                        <p>Learn how to use React Hooks to manage state and side effects in functional components. This comprehensive guide covers useState, useEffect, and custom hooks.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">React</span>
+                            <span class="blog-tag">JavaScript</span>
+                            <span class="blog-tag">Web Development</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">⚡</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Jan 10, 2026</span>
+                            <span class="blog-category">Performance</span>
+                        </div>
+                        <h3>Optimizing Web Performance</h3>
+                        <p>Discover practical techniques to improve your website's performance. From image optimization to code splitting, learn how to make your site faster.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Performance</span>
+                            <span class="blog-tag">SEO</span>
+                            <span class="blog-tag">Web Development</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">🔒</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Jan 5, 2026</span>
+                            <span class="blog-category">Security</span>
+                        </div>
+                        <h3>Web Security Best Practices</h3>
+                        <p>Essential security practices every developer should know. Learn about HTTPS, authentication, data protection, and common vulnerabilities to avoid.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Security</span>
+                            <span class="blog-tag">Backend</span>
+                            <span class="blog-tag">Development</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">🎨</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Dec 28, 2025</span>
+                            <span class="blog-category">Design</span>
+                        </div>
+                        <h3>UI Design Principles for Developers</h3>
+                        <p>Understand core UI design principles that every developer should know. Create beautiful and user-friendly interfaces without a designer.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Design</span>
+                            <span class="blog-tag">UX</span>
+                            <span class="blog-tag">Frontend</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 -->
+                <div class="blog-card">
+                    <div class="blog-image">🚀</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Dec 20, 2025</span>
+                            <span class="blog-category">DevOps</span>
+                        </div>
+                        <h3>Docker for Web Developers</h3>
+                        <p>Get started with Docker and containerization. Learn how to containerize your applications and deploy them efficiently.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Docker</span>
+                            <span class="blog-tag">DevOps</span>
+                            <span class="blog-tag">Deployment</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 -->
+                <div class="blog-card">
+                    <div class="blog-image">💻</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Dec 15, 2025</span>
+                            <span class="blog-category">Career</span>
+                        </div>
+                        <h3>Building Your Developer Portfolio</h3>
+                        <p>Tips and tricks for building an impressive portfolio that stands out to employers and clients. Showcase your best work effectively.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Career</span>
+                            <span class="blog-tag">Portfolio</span>
+                            <span class="blog-tag">Tips</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
