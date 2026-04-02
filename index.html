@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            min-width: 0;
         }
 
         body {
@@ -16,6 +17,7 @@
             line-height: 1.6;
             color: #333;
             padding-top: 100px;
+            overflow-x: hidden;
         }
 
         header {
@@ -28,6 +30,7 @@
             right: 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
+            width: 100%;
         }
 
         nav {
@@ -36,7 +39,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav::-webkit-scrollbar {
+            display: none;
         }
 
         .logo {
@@ -53,10 +62,19 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-width: max-content;
+        }
+
+        nav li {
+            flex: 0 1 auto;
         }
 
         nav a {
+            white-space: nowrap;
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
@@ -258,12 +276,39 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+
+            header {
+                padding: 1rem 0;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
             nav ul {
                 gap: 1rem;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
             }
 
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .container {
+                padding: 0 1.5rem;
             }
 
             .about-content {
@@ -272,6 +317,10 @@
 
             .projects {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                gap: 1rem;
             }
         }
     </style>
